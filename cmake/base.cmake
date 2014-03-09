@@ -1,3 +1,30 @@
+# Note: This version is required as it introduces the per-target INCLUDE_DIRECTORIES
+# that we use to perform multiple builds with different sdk versions, which is
+# desireable for maya builds for instance)
+cmake_minimum_required(VERSION 2.8.8)
+
+
+# POLICIES
+###########
+cmake_policy(SET CMP0000 NEW) 		# A minimum required CMake version must be specified.
+cmake_policy(SET CMP0001 NEW)		# CMAKE_BACKWARDS_COMPATIBILITY should no longer be used.
+cmake_policy(SET CMP0002 NEW)		# Logical target names must be globally unique.
+cmake_policy(SET CMP0003 NEW)		# Libraries linked via full path no longer produce linker search paths. 
+cmake_policy(SET CMP0004 NEW)		# Libraries linked may not have leading or trailing whitespace.
+cmake_policy(SET CMP0005 NEW)		# Preprocessor definition values are now escaped automatically.
+cmake_policy(SET CMP0006 NEW)		# Installing MACOSX_BUNDLE targets requires a BUNDLE DESTINATION.
+cmake_policy(SET CMP0007 NEW)		# list command no longer ignores empty elements.
+cmake_policy(SET CMP0008 NEW)		# Libraries linked by full-path must have a valid library file name.
+cmake_policy(SET CMP0009 NEW)		# FILE GLOB_RECURSE calls should not follow symlinks by default - specify FOLLOW_SYMLINKS instead
+cmake_policy(SET CMP0010 NEW)		# Bad variable reference syntax is an error.
+cmake_policy(SET CMP0011 NEW)		# include() policy change don't affect includer
+cmake_policy(SET CMP0012 NEW)		# if recognizes numbers and booleans and does not try to dereference them
+cmake_policy(SET CMP0013 NEW)		# don't allow duplicate binary directories (which could cause overrides)
+cmake_policy(SET CMP0014 NEW)		# don't allow directories without CMakeLists.txt file in add_directory() calls
+cmake_policy(SET CMP0015 NEW)		# link_directories() treats paths relative to the source dir.
+cmake_policy(SET CMP0016 NEW) 		# Prefer files from the CMake module directory when including from there.
+
+
 
 # INCLUDES
 #############
@@ -23,8 +50,7 @@ set(B_CMAKE_DOC_TARGET_NAME doc)
 function(_B_main)
 	# SET DEFAULT DIRECTORIES
 	##########################
-	set(CMAKE_SUBDIR cmake)
-	set(B_CMAKE_TEMPLATE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CMAKE_SUBDIR}/templates 
+	set(B_CMAKE_TEMPLATE_DIR ${CMAKE_CURRENT_LIST_DIR}/../templates 
 			CACHE INTERNAL "directory with templates that are used for simple variable substitution")
 	
 	# PLATFORM
