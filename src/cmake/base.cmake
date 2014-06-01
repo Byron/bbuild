@@ -50,7 +50,7 @@ set(B_CMAKE_DOC_TARGET_NAME doc)
 function(_B_main)
 	# SET DEFAULT DIRECTORIES
 	##########################
-	set(B_CMAKE_TEMPLATE_DIR ${CMAKE_CURRENT_LIST_DIR}/../templates 
+	set(B_CMAKE_TEMPLATE_DIR ${CMAKE_CURRENT_LIST_DIR}/../../etc/templates 
 			CACHE INTERNAL "directory with templates that are used for simple variable substitution")
 	
 	# PLATFORM

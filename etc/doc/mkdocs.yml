@@ -1,0 +1,17 @@
+site_name: bbuild
+site_url: https://byron.github.io/bbuild
+site_description: Write integrating applications with bcore
+
+repo_url: https://github.com/Byron/bbuild
+dev_addr: 127.0.0.1:9993
+
+docs_dir: ../../src/md
+site_dir: ../../doc/mkdocs/html
+
+pages:
+- ['index.md', 'Home']
+- ['license.md', 'About', 'License']
+
+theme: yeti
+
+copyright: Copyright &copy; 2014, <a href="https://www.linkedin.com/in/sebastianthiel">Sebastian Thiel & Contributors</a>.
