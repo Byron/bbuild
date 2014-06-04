@@ -10,6 +10,7 @@ site_dir: ../../doc/mkdocs/html
 
 pages:
 - ['index.md', 'Home']
+- ['ideas.md', 'Ideas']
 - ['license.md', 'About', 'License']
 
 theme: yeti
